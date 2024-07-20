@@ -1,13 +1,24 @@
-
 \documentclass{resume} % Use the custom resume.cls style
 
 \usepackage[left=0.4 in,top=0.4in,right=0.4 in,bottom=0.4in]{geometry} % Document margins
 \newcommand{\tab}[1]{\hspace{.2667\textwidth}\rlap{#1}} 
 \newcommand{\itab}[1]{\hspace{0em}\rlap{#1}}
-\name{{{fullName}}} % Your name
-% You can merge both of these into a single line, if you do not have a website.
-\address{+1(123) 456-7890 \\ San Francisco, CA} 
-\address{\href{mailto:contact@faangpath.com}{contact@faangpath.com} \\ \href{https://linkedin.com/company/faangpath}{linkedin.com/company/faangpath} \\ \href{www.faangpath.com}{www.faangpath.com}}  %
+\newcommand{\separator}{ \textbar \hspace{0.2cm}}
+
+
+\name{ahmed barhoumi} % Your name
+\address{
+    \href{https://www.github.com/banoni-dev/}{\faGithub \hspace{0.1mm} GitHub}
+    \separator
+    \href{https://www.ahmedbarhoumi.com}{\faGlobe \hspace{0.1mm} ahmedbarhoumi.com}
+    \separator
+    \href{mailto:me@ahmedbarhoumi.me}{\faEnvelope \hspace{0.1mm} contact@ahmedbarhoumi.me}
+    \separator
+    \href{https://www.linkedin.com/in/ahmed-barhoumi-a58369222/}{\faLinkedin \hspace{0.1mm} LinkedIn}
+    \separator
+    \href{tel:+21656466935}{\faPhone \hspace{0.1mm} +216 56 466 935}
+}
+
 
 \begin{document}
 
@@ -17,7 +28,7 @@
 
 \begin{rSection}{OBJECTIVE}
 
-{Software Engineer with 2+ years of experience in XXX, seeking full-time XXX roles.}
+{Full Stack Developer with \textbf{over 4 years in programming} looking for a part time job. Passionate about \textbf{competitive programming}, excelling in \textbf{problem-solving}. Proficient in architecting, developing and deploying innovative software development solutions, fostering collaborative work environments.}
 
 
 \end{rSection}
@@ -27,28 +38,21 @@
 
 \begin{rSection}{Education}
 
-{\bf Master of Computer Science}, Stanford University \hfill {Expected 2020}\\
-Relevant Coursework: A, B, C, and D.
+{
 
-{\bf Bachelor of Computer Science}, Stanford University \hfill {2014 - 2017}
-%Minor in Linguistics \smallskip \\
-%Member of Eta Kappa Nu \\
-%Member of Upsilon Pi Epsilon \\
-
+{\bf Bachelor of Computer Science}, Stanford University \hfill {2022 - Now}}
 
 \end{rSection}
-
 %----------------------------------------------------------------------------------------
 % TECHINICAL STRENGTHS	
 %----------------------------------------------------------------------------------------
 \begin{rSection}{SKILLS}
 
-\begin{tabular}{ @{} >{\bfseries}l @{\hspace{6ex}} l }
-Technical Skills & A, B, C, D
-\\
-Soft Skills & A, B, C, D\\
-XYZ & A, B, C, D\\
-\end{tabular}\\
+\begin{itemize}
+    \item JavaScript \separator TypeScript \separator C++ \separator C \separator Rust \separator GO \separator Python \separator React \separator NextJS \separator Node \separator Express \separator Redux
+    \item Git \separator Docker \separator Kubernetes \separator AWS \separator Jest \separator CI/CD \separator MongoDB \separator MySQL \separator PostgreSQL \separator Redis
+    
+\end{itemize}
 \end{rSection}
 
 \begin{rSection}{EXPERIENCE}
