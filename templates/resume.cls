@@ -1,4 +1,3 @@
-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Medium Length Professional CV - RESUME CLASS FILE
 %
@@ -28,11 +27,12 @@
 \usepackage{ifthen} % Required for ifthenelse statements
 
 \usepackage{hyperref}
+\usepackage{fontawesome}
 \hypersetup{
     colorlinks=true,
     linkcolor=blue,
     filecolor=magenta,      
-    urlcolor=blue,
+    urlcolor=black,
 }
 
 \pagestyle{empty} % Suppress page numbers
