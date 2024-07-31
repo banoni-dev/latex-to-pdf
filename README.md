@@ -9,3 +9,10 @@ make
 make clean
 ```
 ```
+
+### note
+run this is your terminal to set the directory of the template
+```bash
+export TEXINPUTS=./templates:
+```
+```
