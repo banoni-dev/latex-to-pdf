@@ -1,10 +1,10 @@
 \documentclass{../templates/resume}
 
-\usepackage[left=0.4 in,top=0.4in,right=0.4 in,bottom=0.4in]{geometry} % Document margins
+\usepackage[left=0.4 in,top=0.2in,right=0.4 in,bottom=0.4in]{geometry} % Document margins
 \usepackage{fontawesome} % Ensure FontAwesome is included if needed
 \newcommand{\separator}{ \textbar \hspace{0.2cm}}
 
-\name{<%= name %>} % Your name
+\name{<%= name %> \hfill <%= position %> }
 \address{
     \href{<%= github %>}{\faGithub \hspace{0.1mm} GitHub}
     \separator
@@ -17,5 +17,21 @@
     \href{tel:<%= phone %>}{\faPhone \hspace{0.1mm} <%= phone %>}
 }
 \begin{document}
+
+
+%----------------------------------------------------------------------------------------
+%	EDUCATION SECTION
+%----------------------------------------------------------------------------------------
+
+<% if (education && education.length) { %>
+\begin{rSection}{EDUCATION}
+<% education.forEach(function(edu, index) { %>
+    \noindent {\bf <%= edu.degree %>}, <%= edu.institution %> \hfill <%= edu.years %> 
+    <% if (index < education.length - 1) { %> \vspace{-1ex} <% } %> % Adjust space between entries
+<% }) %>
+\end{rSection}
+<% } %>
+
+
 
 \end{document}
