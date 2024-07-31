@@ -1,4 +1,21 @@
-\documentclass{article}
+\documentclass{../templates/resume}
+
+\usepackage[left=0.4 in,top=0.4in,right=0.4 in,bottom=0.4in]{geometry} % Document margins
+\usepackage{fontawesome} % Ensure FontAwesome is included if needed
+\newcommand{\separator}{ \textbar \hspace{0.2cm}}
+
+\name{<%= name %>} % Your name
+\address{
+    \href{<%= github %>}{\faGithub \hspace{0.1mm} GitHub}
+    \separator
+    \href{<%= website %>}{\faGlobe \hspace{0.1mm} <%= websiteText %>}
+    \separator
+    \href{mailto:<%= email %>}{\faEnvelope \hspace{0.1mm} <%= email %>}
+    \separator
+    \href{<%= linkedin %>}{\faLinkedin \hspace{0.1mm} LinkedIn}
+    \separator
+    \href{tel:<%= phone %>}{\faPhone \hspace{0.1mm} <%= phone %>}
+}
 \begin{document}
-Hello, <%= name %>!
+
 \end{document}
