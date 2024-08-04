@@ -1,7 +1,7 @@
 const Fastify = require("fastify");
 const { generatePdf } = require("./generate"); // Adjust the path as needed
 
-const { userPrompt, systemPrompt } = require("./data");
+const { data, systemPrompt } = require("./data");
 const OpenAI = require("openai");
 const openai = new OpenAI();
 const apiKey = process.env.OPENAI_API_KEY;
@@ -23,6 +23,14 @@ function correctObjectSyntax(inputObject) {
   }
 }
 server.post("/generate", async (request, reply) => {
+  const { jobDescription } = request.body;
+  const userPrompt = `this is the data object
+  ${JSON.stringify(data, null, 2)}
+
+  and this is the job description
+
+  ${jobDescription} `;
+
   try {
     const completion = await openai.chat.completions.create({
       messages: [

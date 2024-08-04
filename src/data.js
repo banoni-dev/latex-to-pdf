@@ -118,65 +118,7 @@ const data = {
   languages: ["English", "French", "Arabic"],
 };
 
-const jobDescription = `
-Location(s)
-Boston, Massachusetts, USA;
-Work arrangement(s)
-Fully Remote (works exclusively from home)
-Your opportunity
-The PLG Experiences (PLGX) team builds apps and components that drive customer adoption and product-led growth on the New Relic platform.
-We are looking for a Software Engineer to join us! We primarily build front-end web applications and deal with modern frameworks and libraries such as ReactJS and GraphQL. We also build out APIs that stitch together our platform’s data for the front-end.
-
-This position is an excellent match for someone who loves to create polished user experiences, both in front-end services and occasionally the back-end. It is particularly well suited for a growth-minded engineer who is excited to learn new technologies and practices. There will be an on-call rotation with a focus on sustainability, and, when issues arise, we prioritize getting them fixed right away.
-
-What you'll do
-
-    Maintain a work-life balance that enables you to thrive by using unlimited flex time-off, twelve weeks of paid parental leave, and our DataNerds4Good volunteer time off program!
-    Participate in a one-week on-call rotation to support our services. We bake stability into everything we do to ensure a healthy work-life balance.
-    Ship incrementally and often, helping the team to maintain a constant flow of feedback on its work.
-    Collaborate with designers and other UI engineers across the company to learn from others and to ensure you stay up to date on the company’s UI best practices.
-    Build thoughtful, high-quality code that is easy to read and maintain.
-    Produce highly performant and flexible user interfaces.
-    Be a voice in deciding how to improve our users’ daily workflows
-    Actively drive continuous engineering excellence within your team and across the organization.
-
-
-This role requires
-
-    Familiarity with Node.
-    Comfortable and willing to give and receive feedback.
-    Collaborative working style and excellent communication skills.
-    Experience reviewing PRs and applying best methodologies to reviews.
-    Familiarity with modern development and build tools such as Git, NPM, Babel, and Webpack.
-    Experience integrating UIs with data from service endpoints.
-    Strong React fundamentals with proven experience writing performant and reusable components.
-    Deep familiarity with modern Javascript (ES6+), HTML, CSS.
-    2+ years of professional experience, or proven exceptional ability, building production front-end web applications.
-
-Bonus points if you have
-
-    Exposure to TypeScript or another strongly typed language.
-    Experience working within the constraints of a design framework.
-    Experience with front-end JS testing tools.
-    Exposure to PostgreSQL.
-    Exposure to back-end development, particularly designing and integrating APIs.
-
-Fostering a diverse, welcoming and inclusive environment is important to us. We work hard to make everyone feel comfortable bringing their best, most authentic selves to work every day. We celebrate our talented Relics’ different backgrounds and abilities, and recognize the different paths they took to reach us – including nontraditional ones. Their experiences and perspectives inspire us to make our products and company the best they can be. We’re looking for people who feel connected to our mission and values, not just candidates who check off all the boxes. 
-
-If you require a reasonable accommodation to complete any part of the application or recruiting process, please visit https://newrelic.avature.net/accommodations to submit your request.
-
-We believe in empowering all Relics to achieve professional and business success through a flexible workforce model. This model allows us to work in a variety of workplaces that best support our success, including fully office-based, fully remote, or hybrid.
-`;
-
-const userPrompt = `this is the data object
-${JSON.stringify(data, null, 2)}
-
-and this is the job description
-
-${jobDescription}
-`;
-
 module.exports = {
   systemPrompt,
-  userPrompt,
+  data,
 };
