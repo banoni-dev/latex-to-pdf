@@ -1,7 +1,8 @@
 const Fastify = require("fastify");
 const cors = require("@fastify/cors");
-const { generatePdf } = require("./generate"); // Adjust the path as needed
-
+const { generatePdf } = require("./generate");
+const path = require("path");
+const fs = require("fs"); // Standard fs module for streaming
 const { data, systemPrompt } = require("./data");
 const OpenAI = require("openai");
 const openai = new OpenAI();
@@ -13,24 +14,24 @@ server.register(cors, {
   origin: "*",
 });
 
-function correctObjectSyntax(inputObject) {
-  // Convert the input object to a JSON string with proper formatting
-  try {
-    // Attempt to stringify the object using JSON.stringify
-    const jsonString = JSON.stringify(inputObject, null, 2);
-    // Parse the stringified JSON to ensure it's valid and well-formed
-    const parsedObject = JSON.parse(jsonString);
-    // Return the parsed object to maintain proper JSON structure
-    return parsedObject;
-  } catch (error) {
-    // If there's an error in stringifying or parsing, log the error and return null
-    console.error("Error in correcting object syntax:", error);
-    return null;
-  }
-}
+server.get("/download-pdf/:filename", (request, reply) => {
+  const { filename } = request.params;
+  const filePath = path.join(__dirname, "../pdfs", filename);
+
+  fs.readFile(filePath, (err, data) => {
+    if (err) {
+      reply.status(500).send("Error reading file.");
+      return;
+    }
+
+    reply
+      .header("Content-Disposition", `attachment; filename=${filename}`)
+      .send(data);
+  });
+});
+
 server.post("/generate", async (request, reply) => {
   const { jobDescription } = request.body;
-  console.log("jobDescription 1 :", jobDescription);
   const userPrompt = `this is the data object
   ${JSON.stringify(data, null, 2)}
 
@@ -54,18 +55,20 @@ server.post("/generate", async (request, reply) => {
     });
 
     const responseContent = completion.choices[0].message.content;
-
-    console.log("responseContent 2 :", responseContent);
     const finalData = JSON.parse(responseContent);
-    console.log("finalData 3 :", finalData);
     const pdfPath = await generatePdf(finalData);
-    reply.send({ pdfPath });
+
+    // Extract the file name from the full path
+    const pdfFilename = path.basename(pdfPath);
+
+    // Respond with the correct URL path
+    reply.send({ pdfPath: `${pdfFilename}` });
   } catch (error) {
     reply.status(500).send({ error: error.message });
+    console.error("Error generating PDF: 2", error);
   }
 });
 
-// Updated listen method with options object
 server.listen(
   {
     port: 3000,
