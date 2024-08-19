@@ -16,3 +16,6 @@ run this is your terminal to set the directory of the template
 export TEXINPUTS=./templates:
 ```
 ```
+
+### TODO
+- [] use cloudinary to upload the pdf
