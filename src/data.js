@@ -29,7 +29,11 @@ For the object structure:
     personality: Include if necessary or beneficial, especially if the resume lacks substantial data. Format according to the data provided and match the job description. If omitted, set to an empty string.
     languages: Use the languages listed in the provided data. If no language data is provided, set to an empty string.
 
-Return an object following these guidelines, ensuring that every key is included in the object. If a section is not included, set its value to an empty string. Do not include any additional text or explanation.`;
+Return an object following these guidelines, ensuring that every key is included in the object. If a section is not included, set its value to an empty string. Do not include any additional text or explanation.
+only return the object that will be used to create the resume stringified as JSON. the response you sill give me i'll to a parsing to get the object and use it to create the resume. thre it must be with no mistakes or extra text.
+  i don't want a reponse begins with (backticks foloowed by json word) { or ends with } or any other text. just the object in stringified JSON format.
+
+  `;
 
 const data = {
   name: "Ahmed Barhoumi",

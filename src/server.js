@@ -1,4 +1,5 @@
 const Fastify = require("fastify");
+const cors = require("@fastify/cors");
 const { generatePdf } = require("./generate"); // Adjust the path as needed
 
 const { data, systemPrompt } = require("./data");
@@ -7,6 +8,11 @@ const openai = new OpenAI();
 const apiKey = process.env.OPENAI_API_KEY;
 
 const server = Fastify();
+
+server.register(cors, {
+  origin: "*",
+});
+
 function correctObjectSyntax(inputObject) {
   // Convert the input object to a JSON string with proper formatting
   try {
@@ -24,6 +30,7 @@ function correctObjectSyntax(inputObject) {
 }
 server.post("/generate", async (request, reply) => {
   const { jobDescription } = request.body;
+  console.log("jobDescription 1 :", jobDescription);
   const userPrompt = `this is the data object
   ${JSON.stringify(data, null, 2)}
 
@@ -46,10 +53,11 @@ server.post("/generate", async (request, reply) => {
       model: "gpt-4o-mini",
     });
 
-    const responseContent = correctObjectSyntax(
-      completion.choices[0].message.content,
-    );
+    const responseContent = completion.choices[0].message.content;
+
+    console.log("responseContent 2 :", responseContent);
     const finalData = JSON.parse(responseContent);
+    console.log("finalData 3 :", finalData);
     const pdfPath = await generatePdf(finalData);
     reply.send({ pdfPath });
   } catch (error) {
