@@ -42,7 +42,7 @@ const data = {
   website: "https://www.ahmedbarhoumi.me",
   websiteText: "ahmedbarhoumi.me",
   email: "me@ahmedbarhoumi.me",
-  linkedin: "https://www.linkedin.com/in/ahmed-barhoumi-a58369222/",
+  linkedin: "https://www.linkedin.com/in/ahmedbarhoumi/",
   phone: "+216 56 466 935",
   address: "Monastir",
   achievements: [],
